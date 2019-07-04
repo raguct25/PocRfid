@@ -8,6 +8,7 @@
     "android": "cd ./android && ./gradlew app:assembleDebug && ./gradlew installDebug"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^1.6.3",
     "buffer": "^5.2.1",
     "bytes-counter": "^1.0.0",
     "convert-string": "^0.1.0",
@@ -16,9 +17,11 @@
     "react-native": "0.59.9",
     "react-native-ble-manager": "^6.6.6",
     "react-native-fab": "^1.0.8",
+    "react-native-fs": "^2.13.3",
     "react-native-navigation": "^3.0.0-alpha.0",
     "react-native-responsive-screen": "^1.2.2",
-    "react-native-vector-icons": "^6.6.0"
+    "react-native-vector-icons": "^6.6.0",
+    "react-pdfmake": "^0.2.0"
   },
   "devDependencies": {
     "@babel/core": "7.4.5",
