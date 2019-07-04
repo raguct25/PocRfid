@@ -14,6 +14,10 @@ import { Container, Content, Text, Item, List, ListItem } from "native-base";
 import HeaderView from "../../components/HeaderView";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
+// import ReactPDF from "@react-pdf/renderer";
+import { mkdir, ExternalStorageDirectoryPath } from "react-native-fs";
+// import MyDocument from "./MyDocument";
+
 const dataList = [1000000, 22, 333, 4, 50000, 1, 22, 30, 400, 55];
 const cards = [
   "RAGHU",
@@ -43,6 +47,8 @@ const cards = [
   "Last-RFID"
 ];
 
+const salzerHomeDir = ExternalStorageDirectoryPath + "/RAGU/";
+
 type Props = {};
 class History extends Component<Props> {
   constructor(props) {
@@ -67,6 +73,12 @@ class History extends Component<Props> {
     });
   }
 
+  downloadPdf = () => {
+    console.log("download called");
+    mkdir(salzerHomeDir);
+    // ReactPDF.renderToStream(<MyDocument />, `${salzerHomeDir}/example.pdf`);
+  };
+
   render() {
     return (
       <Container>
@@ -87,7 +99,11 @@ class History extends Component<Props> {
               />
             </List>
           </TouchableHighlight>
-          <Icon name="get-app" style={styles.downloadIconStyle} />
+          <Icon
+            name="get-app"
+            style={styles.downloadIconStyle}
+            onPress={this.downloadPdf}
+          />
         </List>
 
         <Content>

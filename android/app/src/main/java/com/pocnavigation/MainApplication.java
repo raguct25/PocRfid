@@ -3,6 +3,7 @@ package com.pocnavigation;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.rnfs.RNFSPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import it.innove.BleManagerPackage;
 import com.facebook.react.ReactNativeHost;
@@ -41,7 +42,8 @@ public class MainApplication extends NavigationApplication {
       return Arrays.<ReactPackage>asList(
           // eg. new VectorIconsPackage()
           new BleManagerPackage(),
-          new VectorIconsPackage()
+          new VectorIconsPackage(),
+          new RNFSPackage()
       );
   }
 

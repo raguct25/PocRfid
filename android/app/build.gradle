@@ -106,7 +106,7 @@ android {
     defaultConfig {
         applicationId "com.pocnavigation"
         minSdkVersion 19
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        targetSdkVersion 22
         missingDimensionStrategy "RNN.reactNativeVersion", "reactNative57_5"
         versionCode 1
         versionName "1.0"
@@ -148,6 +148,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-fs')
     implementation project(':react-native-vector-icons')
     implementation project(':react-native-ble-manager')
     implementation fileTree(dir: "libs", include: ["*.jar"])
