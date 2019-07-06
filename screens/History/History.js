@@ -17,6 +17,206 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 // import ReactPDF from "@react-pdf/renderer";
 import { mkdir, ExternalStorageDirectoryPath } from "react-native-fs";
 // import MyDocument from "./MyDocument";
+import PDFLib, { PDFDocument, PDFPage } from "react-native-pdf-lib";
+
+//.setMediaBox(width, height)
+
+const pdfSubHeader = [
+  [
+    {
+      name: "S.No",
+      options: { x: 10, y: 220, color: "#000000", fontSize: 6 }
+    },
+    {
+      name: "Name",
+      options: { x: 25, y: 220, color: "#000000", fontSize: 6 }
+    },
+    {
+      name: "Date",
+      options: { x: 45, y: 220, color: "#000000", fontSize: 6 }
+    },
+    {
+      name: "Time",
+      options: { x: 70, y: 220, color: "#000000", fontSize: 6 }
+    },
+    {
+      name: "Energy",
+      options: { x: 100, y: 220, color: "#000000", fontSize: 6 }
+    },
+    {
+      name: "Cost",
+      options: { x: 120, y: 220, color: "#000000", fontSize: 6 }
+    },
+    {
+      name: "Charging",
+      options: { x: 140, y: 220, color: "#000000", fontSize: 6 }
+    },
+    {
+      name: "Amount",
+      options: { x: 170, y: 220, color: "#000000", fontSize: 6 }
+    }
+  ]
+];
+
+const page1 = PDFPage.create()
+  .setMediaBox(200, 250)
+  .drawText("Salzer", {
+    x: 80,
+    y: 235,
+    color: "#000000",
+    fontSize: 12
+  })
+  .drawRectangle({
+    x: 5,
+    y: 230,
+    width: 200,
+    height: 2,
+    color: "#EEEEEE"
+  })
+  .drawText("S.No", {
+    x: 10,
+    y: 220,
+    color: "#000000",
+    fontSize: 6
+  })
+  .drawText("Name", {
+    x: 25,
+    y: 220,
+    color: "#000000",
+    fontSize: 6
+  })
+  .drawText("Date", {
+    x: 45,
+    y: 220,
+    color: "#000000",
+    fontSize: 6
+  })
+  .drawText("Time", {
+    x: 70,
+    y: 220,
+    color: "#000000",
+    fontSize: 6
+  })
+  .drawText("Energy", {
+    x: 100,
+    y: 220,
+    color: "#000000",
+    fontSize: 6
+  })
+  .drawText("Cost", {
+    x: 120,
+    y: 220,
+    color: "#000000",
+    fontSize: 6
+  })
+  .drawText("Charging", {
+    x: 140,
+    y: 220,
+    color: "#000000",
+    fontSize: 6
+  })
+  .drawText("Amount", {
+    x: 170,
+    y: 220,
+    color: "#000000",
+    fontSize: 6
+  })
+  .drawText("1", {
+    x: 10,
+    y: 210,
+    color: "#000000",
+    fontSize: 5
+  })
+  .drawText("RAGHU", {
+    x: 25,
+    y: 210,
+    color: "#000000",
+    fontSize: 5
+  })
+  .drawText("12-07-2019", {
+    x: 45,
+    y: 210,
+    color: "#000000",
+    fontSize: 5
+  })
+  .drawText("12:10:45 pm", {
+    x: 70,
+    y: 210,
+    color: "#000000",
+    fontSize: 5
+  })
+  .drawText("1000.00", {
+    x: 100,
+    y: 210,
+    color: "#000000",
+    fontSize: 5
+  })
+  .drawText("5444.90", {
+    x: 120,
+    y: 210,
+    color: "#000000",
+    fontSize: 5
+  })
+  .drawText("24:H 50:M", {
+    x: 140,
+    y: 210,
+    color: "#000000",
+    fontSize: 5
+  })
+  .drawText("9999999", {
+    x: 170,
+    y: 210,
+    color: "#000000",
+    fontSize: 5
+  })
+  .drawText("1", {
+    x: 10,
+    y: 200,
+    color: "#000000",
+    fontSize: 5
+  })
+  .drawText("RAGHU", {
+    x: 25,
+    y: 200,
+    color: "#000000",
+    fontSize: 5
+  })
+  .drawText("12-07-2019", {
+    x: 45,
+    y: 200,
+    color: "#000000",
+    fontSize: 5
+  })
+  .drawText("12:10:45 pm", {
+    x: 70,
+    y: 200,
+    color: "#000000",
+    fontSize: 5
+  })
+  .drawText("1000.00", {
+    x: 100,
+    y: 200,
+    color: "#000000",
+    fontSize: 5
+  })
+  .drawText("5444.90", {
+    x: 120,
+    y: 200,
+    color: "#000000",
+    fontSize: 5
+  })
+  .drawText("24:H 50:M", {
+    x: 140,
+    y: 200,
+    color: "#000000",
+    fontSize: 5
+  })
+  .drawText("9999999", {
+    x: 170,
+    y: 200,
+    color: "#000000",
+    fontSize: 5
+  });
 
 const dataList = [1000000, 22, 333, 4, 50000, 1, 22, 30, 400, 55];
 const cards = [
@@ -47,7 +247,7 @@ const cards = [
   "Last-RFID"
 ];
 
-const salzerHomeDir = ExternalStorageDirectoryPath + "/RAGU/";
+const salzerHomeDir = ExternalStorageDirectoryPath + "/PDFTest/";
 
 type Props = {};
 class History extends Component<Props> {
@@ -59,7 +259,8 @@ class History extends Component<Props> {
       results: {
         items: []
       },
-      modalVisible: false
+      modalVisible: false,
+      downloadIcon: true
     };
   }
 
@@ -75,8 +276,18 @@ class History extends Component<Props> {
 
   downloadPdf = () => {
     console.log("download called");
+    this.setState({ downloadIcon: false });
     mkdir(salzerHomeDir);
-    // ReactPDF.renderToStream(<MyDocument />, `${salzerHomeDir}/example.pdf`);
+
+    const pdfPath = `${salzerHomeDir}/sample.pdf`;
+    PDFDocument.create(pdfPath)
+      .addPages(page1)
+      .write() // Returns a promise that resolves with the PDF's path
+      .then(path => {
+        // this.setState({ downloadIcon: true });
+        console.log("PDF created at: " + path);
+        // Do stuff with your shiny new PDF!
+      });
   };
 
   render() {
@@ -99,11 +310,19 @@ class History extends Component<Props> {
               />
             </List>
           </TouchableHighlight>
-          <Icon
-            name="get-app"
-            style={styles.downloadIconStyle}
-            onPress={this.downloadPdf}
-          />
+          {this.state.downloadIcon ? (
+            <Icon
+              name="get-app"
+              style={styles.downloadIconStyle}
+              onPress={this.downloadPdf}
+            />
+          ) : (
+            <Icon
+              name="keyboard-arrow-down"
+              style={styles.downloadIconStyle}
+              onPress={this.downloadPdf}
+            />
+          )}
         </List>
 
         <Content>

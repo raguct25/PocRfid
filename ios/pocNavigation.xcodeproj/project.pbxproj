@@ -64,6 +64,8 @@
 		ECB1F5AF5A294FC282264B1B /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF94133D8D142B3B93FB035 /* libRNVectorIcons.a */; };
 		F0A607138430456FBAF634A5 /* libRNVectorIcons-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A05DF7D48646C08E5F8888 /* libRNVectorIcons-tvOS.a */; };
 		5D091DB5F00342018731482E /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC286C49E27343F290760648 /* libRNFS.a */; };
+		6E9DC15D139A4050857B381C /* libRNPDFLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6AFDEF5C9C445D4A8BC5029 /* libRNPDFLib.a */; };
+		F7362975CD284E7BB4C0E12A /* Times New Roman.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA819E4A67C47CA90B02362 /* Times New Roman.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -400,6 +402,9 @@
 		44A05DF7D48646C08E5F8888 /* libRNVectorIcons-tvOS.a */ = {isa = PBXFileReference; name = "libRNVectorIcons-tvOS.a"; path = "libRNVectorIcons-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		4260DBBF6F394048A51715A4 /* RNFS.xcodeproj */ = {isa = PBXFileReference; name = "RNFS.xcodeproj"; path = "../node_modules/react-native-fs/RNFS.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		BC286C49E27343F290760648 /* libRNFS.a */ = {isa = PBXFileReference; name = "libRNFS.a"; path = "libRNFS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		39C43ED4FC8C4D7480166959 /* RNPDFLib.xcodeproj */ = {isa = PBXFileReference; name = "RNPDFLib.xcodeproj"; path = "../node_modules/react-native-pdf-lib/ios/RNPDFLib.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		F6AFDEF5C9C445D4A8BC5029 /* libRNPDFLib.a */ = {isa = PBXFileReference; name = "libRNPDFLib.a"; path = "libRNPDFLib.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		2DA819E4A67C47CA90B02362 /* Times New Roman.ttf */ = {isa = PBXFileReference; name = "Times New Roman.ttf"; path = "../node_modules/react-native-pdf-lib/assets/Times New Roman.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -433,6 +438,7 @@
 				979F075ED29C409898C70EE5 /* libBleManager.a in Frameworks */,
 				ECB1F5AF5A294FC282264B1B /* libRNVectorIcons.a in Frameworks */,
 				5D091DB5F00342018731482E /* libRNFS.a in Frameworks */,
+				6E9DC15D139A4050857B381C /* libRNPDFLib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,6 +633,7 @@
 				0A9914DACE34496C8C71A9FC /* BleManager.xcodeproj */,
 				601C8F3A46CA4BD38C770F81 /* RNVectorIcons.xcodeproj */,
 				4260DBBF6F394048A51715A4 /* RNFS.xcodeproj */,
+				39C43ED4FC8C4D7480166959 /* RNPDFLib.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -697,6 +704,7 @@
 				5C1704F6EB254E99BFDC06D4 /* SimpleLineIcons.ttf */,
 				5A1C65A904C74FC7990F9F24 /* Zocial.ttf */,
 				CBC0308997144283AC7C7559 /* Fontisto.ttf */,
+				2DA819E4A67C47CA90B02362 /* Times New Roman.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1167,6 +1175,7 @@
 				A710A640813F4F8B92E27641 /* SimpleLineIcons.ttf in Resources */,
 				4D5C88A77C67434688E1A29C /* Zocial.ttf in Resources */,
 				C968FBA4702F44DE86E7EA24 /* Fontisto.ttf in Resources */,
+				F7362975CD284E7BB4C0E12A /* Times New Roman.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1301,12 +1310,6 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pocNavigation.app/pocNavigation";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1314,6 +1317,7 @@
 					"$(SRCROOT)/../node_modules/react-native-ble-manager/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-fs/**",
+					"$(SRCROOT)/../node_modules/react-native-pdf-lib/ios/**",
 				);
 			};
 			name = Debug;
@@ -1335,12 +1339,6 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pocNavigation.app/pocNavigation";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1348,6 +1346,7 @@
 					"$(SRCROOT)/../node_modules/react-native-ble-manager/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-fs/**",
+					"$(SRCROOT)/../node_modules/react-native-pdf-lib/ios/**",
 				);
 			};
 			name = Release;
@@ -1374,6 +1373,7 @@
 					"$(SRCROOT)/../node_modules/react-native-ble-manager/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-fs/**",
+					"$(SRCROOT)/../node_modules/react-native-pdf-lib/ios/**",
 				);
 			};
 			name = Debug;
@@ -1399,6 +1399,7 @@
 					"$(SRCROOT)/../node_modules/react-native-ble-manager/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-fs/**",
+					"$(SRCROOT)/../node_modules/react-native-pdf-lib/ios/**",
 				);
 			};
 			name = Release;
@@ -1428,12 +1429,6 @@
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1441,6 +1436,7 @@
 					"$(SRCROOT)/../node_modules/react-native-ble-manager/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-fs/**",
+					"$(SRCROOT)/../node_modules/react-native-pdf-lib/ios/**",
 				);
 			};
 			name = Debug;
@@ -1470,12 +1466,6 @@
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1483,6 +1473,7 @@
 					"$(SRCROOT)/../node_modules/react-native-ble-manager/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-fs/**",
+					"$(SRCROOT)/../node_modules/react-native-pdf-lib/ios/**",
 				);
 			};
 			name = Release;
@@ -1511,12 +1502,6 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1524,6 +1509,7 @@
 					"$(SRCROOT)/../node_modules/react-native-ble-manager/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-fs/**",
+					"$(SRCROOT)/../node_modules/react-native-pdf-lib/ios/**",
 				);
 			};
 			name = Debug;
@@ -1552,12 +1538,6 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1565,6 +1545,7 @@
 					"$(SRCROOT)/../node_modules/react-native-ble-manager/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-fs/**",
+					"$(SRCROOT)/../node_modules/react-native-pdf-lib/ios/**",
 				);
 			};
 			name = Release;

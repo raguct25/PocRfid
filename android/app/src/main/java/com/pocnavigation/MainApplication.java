@@ -3,6 +3,7 @@ package com.pocnavigation;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.hopding.pdflib.PDFLibPackage;
 import com.rnfs.RNFSPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import it.innove.BleManagerPackage;
@@ -43,7 +44,8 @@ public class MainApplication extends NavigationApplication {
           // eg. new VectorIconsPackage()
           new BleManagerPackage(),
           new VectorIconsPackage(),
-          new RNFSPackage()
+          new RNFSPackage(),
+          new PDFLibPackage()
       );
   }
 

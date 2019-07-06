@@ -9,7 +9,7 @@ export const gotoHomePage = () =>
         children: [
           {
             component: {
-              name: "Rfid",
+              name: "History",
               options: {
                 bottomTab: {
                   text: "RFID",
@@ -43,7 +43,7 @@ export const gotoHomePage = () =>
           },
           {
             component: {
-              name: "Setting",
+              name: "Scan",
               options: {
                 bottomTab: {
                   text: "Ble Devices",
